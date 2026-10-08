@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Crawler - Tin tức</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+</head>
+
+<body>
+
+    <!-- THANH ĐIỀU HƯỚNG -->
+    <header>
+
+        <nav class="navbar">
+
+            <div class="container">
+
+                <a href="index.html"
+                   class="logo">
+                    TIN TỨC
+                </a>
+
+                <ul id="categoryMenu"
+                    class="nav-menu">
+
+                    <!-- Danh mục được JavaScript tải vào -->
+
+                </ul>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- NỘI DUNG CRAWLER -->
+    <main class="container">
+
+        <section class="crawler-section">
+
+            <h1>
+                Crawler bài viết
+            </h1>
+
+            <p>
+                Nhập URL bài viết để lấy thông tin.
+            </p>
+
+
+            <!-- Ô NHẬP URL -->
+
+            <div class="crawler-form">
+
+                <label for="articleUrl">
+                    URL bài viết
+                </label>
+
+                <input
+                    type="url"
+                    id="articleUrl"
+                    placeholder="https://dantri.com.vn/..."
+                >
+
+                <button
+                    id="crawlButton"
+                    type="button">
+
+                    Crawl bài viết
+
+                </button>
+
+            </div>
+
+
+            <!-- THÔNG BÁO -->
+
+            <div id="crawlStatus"
+                 class="crawl-status">
+
+            </div>
+
+
+            <!-- KẾT QUẢ -->
+
+            <div id="crawlResult"
+                 class="crawl-result">
+
+                <!-- Kết quả crawler sẽ hiển thị ở đây -->
+
+            </div>
+
+
+            <!-- JSON -->
+
+            <div class="json-section">
+
+                <h2>
+                    Dữ liệu JSON
+                </h2>
+
+                <pre id="jsonOutput">
+Chưa có dữ liệu.
+                </pre>
+
+            </div>
+
+
+            <!-- NÚT LƯU -->
+
+            <button
+                id="saveButton"
+                type="button"
+                disabled>
+
+                Lưu bài viết
+
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+            <div>
+
+                <h3>Tin tức</h3>
+
+                <p>
+                    Website tin tức tổng hợp.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Liên kết nhanh</h3>
+
+                <a href="index.html">
+                    Trang chủ
+                </a>
+
+                <a href="category.html">
+                    Danh mục
+                </a>
+
+                <a href="crawler.html">
+                    Crawler
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h3>Liên hệ</h3>
+
+                <p>
+                    Email: contact@example.com
+                </p>
+
+                <p>
+                    Địa chỉ: Hà Nội, Việt Nam
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Mạng xã hội</h3>
+
+                <a href="#">
+                    Facebook
+                </a>
+
+                <a href="#">
+                    YouTube
+                </a>
+
+                <a href="#">
+                    TikTok
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 News Website.
+            All rights reserved.
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/app.js"></script>
+
+    <script src="js/crawler.js"></script>
+
+</body>
+
+</html>
