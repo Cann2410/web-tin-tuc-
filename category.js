@@ -1,51 +1,37 @@
-[
-  {
-    "id": "home",
-    "title": "Trang chủ",
-    "url": "index.html",
-    "type": "home"
-  },
-  {
-    "id": "dt360",
-    "title": "Dân trí 360",
-    "url": "https://dantri.com.vn/dt360.htm",
-    "type": "external"
-  },
-  {
-    "id": "moi-nhat",
-    "title": "Mới nhất",
-    "url": "category.html?cat=moi-nhat",
-    "type": "category"
-  },
-  {
-    "id": "the-gioi",
-    "title": "Thế giới",
-    "url": "category.html?cat=the-gioi",
-    "type": "category",
-    "children": [
-      { "id": "quan-su", "title": "Quân sự", "url": "category.html?cat=quan-su" },
-      { "id": "phan-tich", "title": "Phân tích - Bình luận", "url": "category.html?cat=phan-tich" },
-      { "id": "the-gioi-do-day", "title": "Thế giới đó đây", "url": "category.html?cat=the-gioi-do-day" },
-      { "id": "kieu-bao", "title": "Kiều bào", "url": "category.html?cat=kieu-bao" }
-    ]
-  },
-  {
-    "id": "thoi-su",
-    "title": "Thời sự",
-    "url": "category.html?cat=thoi-su",
-    "type": "category",
-    "children": [
-      { "id": "chinh-tri", "title": "Chính trị", "url": "category.html?cat=chinh-tri" },
-      { "id": "giao-thong", "title": "Giao thông", "url": "category.html?cat=giao-thong" },
-      { "id": "moi-truong", "title": "Môi trường", "url": "category.html?cat=moi-truong" },
-      { "id": "nong-tren-mang", "title": "Nóng trên mạng", "url": "category.html?cat=nong-tren-mang" }
-    ]
-  },
-  {
-    "id": "bat-dong-san",
-    "title": "Bất động sản",
-    "url": "category.html?cat=bat-dong-san",
-    "type": "category"
+document.addEventListener('DOMContentLoaded', async () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const catId = urlParams.get('cat');
+
+  const titleEl = document.getElementById('cat-title');
+  const postsContainer = document.getElementById('cat-posts');
+
+  if (titleEl) titleEl.innerText = `Chuyên mục: ${catId || 'Tất cả'}`;
+
+  let posts = JSON.parse(localStorage.getItem('news_posts')) || [];
+
+  if (catId && catId !== 'moi-nhat') {
+    posts = posts.filter(p => p.category && p.category.toLowerCase().replace(/\s+/g, '-') === catId.toLowerCase());
   }
-]
-      
+
+  if (!postsContainer) return;
+
+  if (posts.length === 0) {
+    postsContainer.innerHTML = '<p style="padding: 20px;">Không tìm thấy bài viết nào trong chuyên mục này.</p>';
+    return;
+  }
+
+  let html = '';
+  posts.forEach(post => {
+    html += `
+      <div class="post-card">
+        <img src="${post.image || 'https://via.placeholder.com/220x140'}" alt="${post.title}">
+        <div class="post-card-body">
+          <h3><a href="post.html?id=${post.id}">${post.title}</a></h3>
+          <div class="meta">${post.publishedAt || ''} | Tác giả: ${post.author || 'Dân trí'}</div>
+          <p>${post.excerpt || ''}</p>
+        </div>
+      </div>
+    `;
+  });
+  postsContainer.innerHTML = html;
+});
