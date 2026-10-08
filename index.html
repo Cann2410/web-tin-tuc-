@@ -1,82 +1,60 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Website</title>
-
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang Tin Tức Dân Trí</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-    <!-- Thanh điều hướng -->
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <a href="index.html" class="logo">TIN TỨC</a>
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar container">
+      <ul class="nav-list" id="categories-menu"></ul>
+    </nav>
+  </header>
 
-                <ul id="categoryMenu" class="nav-menu">
-                    <!-- Danh mục sẽ được JavaScript tải vào đây -->
-                </ul>
-            </div>
-        </nav>
-    </header>
+  <!-- Content chính -->
+  <main class="container">
+    <h1 class="page-title" id="page-title">Tin tức mới nhất</h1>
 
-    <!-- Nội dung chính -->
-    <main class="container">
+    <!-- Top Section (1 lớn bên trái + 2 nhỏ bên phải) -->
+    <section class="top-section" id="top-section"></section>
 
-        <section class="news-section">
-            <h1>Tin tức mới nhất</h1>
+    <!-- Danh sách bài viết còn lại -->
+    <section class="post-list-section" id="remaining-posts"></section>
+  </main>
 
-            <div id="featuredPosts" class="featured-posts">
-                <!-- 3 bài mới nhất sẽ hiển thị ở đây -->
-            </div>
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h4>Tin tức</h4>
+        <p>Website tin tức tổng hợp cập nhật liên tục thông tin thời sự, kinh tế, xã hội.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Liên kết nhanh</h4>
+        <p><a href="index.html">Trang chủ</a></p>
+        <p><a href="crawler.html">Công cụ Crawl tin</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Liên hệ</h4>
+        <p>Email: contact@dantri.com.vn</p>
+        <p>Địa chỉ: Hà Nội, Việt Nam</p>
+      </div>
+      <div class="footer-col">
+        <h4>Mạng xã hội</h4>
+        <p><a href="#">Facebook</a></p>
+        <p><a href="#">YouTube</a></p>
+        <p><a href="#">TikTok</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Web Tin Tức. All rights reserved.</p>
+    </div>
+  </footer>
 
-            <div id="postList" class="post-list">
-                <!-- Các bài viết còn lại sẽ hiển thị ở đây -->
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-content">
-
-            <div>
-                <h3>Tin tức</h3>
-                <p>Website tin tức tổng hợp.</p>
-            </div>
-
-            <div>
-                <h3>Liên kết nhanh</h3>
-                <a href="index.html">Trang chủ</a>
-                <a href="#">Tin mới</a>
-                <a href="#">Liên hệ</a>
-            </div>
-
-            <div>
-                <h3>Liên hệ</h3>
-                <p>Email: contact@example.com</p>
-                <p>Địa chỉ: Hà Nội, Việt Nam</p>
-            </div>
-
-            <div>
-                <h3>Mạng xã hội</h3>
-                <a href="#">Facebook</a>
-                <a href="#">YouTube</a>
-                <a href="#">TikTok</a>
-            </div>
-
-        </div>
-
-        <div class="copyright">
-            © 2026 News Website. All rights reserved.
-        </div>
-    </footer>
-
-    <script src="js/app.js"></script>
-
+  <script src="js/app.js"></script>
 </body>
 </html>
